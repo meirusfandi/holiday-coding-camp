@@ -15,16 +15,19 @@ export default function Footer() {
           
           {/* Column 1: Info */}
           <div className="md:col-span-5">
-            <div id="footer-logo" className="flex items-center gap-2 text-white">
-              <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-lg">
-                <Gamepad2 className="w-5 h-5 text-white" />
-              </div>
+            <div id="footer-logo" className="flex items-center gap-2.5 text-white">
+              <img
+                src="/src/assets/images/fansedu_logo_1781709962930.jpg"
+                alt="Fansedu Olympiad Academy"
+                referrerPolicy="no-referrer"
+                className="w-9 h-9 rounded-xl object-cover shadow-lg border border-slate-800"
+              />
               <div>
                 <span className="font-sans font-extrabold text-lg tracking-tight leading-none block">
                   FANSEDU
                 </span>
-                <span className="font-sans text-[10px] font-bold tracking-widest text-secondary uppercase block mt-0.5">
-                  Academy
+                <span className="font-sans text-[10px] font-extrabold tracking-widest text-[#00a3ff] uppercase block mt-0.5">
+                  ACADEMY
                 </span>
               </div>
             </div>

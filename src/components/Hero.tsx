@@ -108,16 +108,19 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
 
       {/* Top Header / Navigation simulation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex items-center justify-between">
-        <div id="brand-logo" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
-            <Gamepad2 className="w-6 h-6 text-white stroke-[2.5]" />
-          </div>
+        <div id="brand-logo" className="flex items-center gap-2.5 bg-white/50 backdrop-blur-sm px-2 py-1.5 rounded-2xl border border-gray-100/30">
+          <img
+            src="/src/assets/images/fansedu_logo_1781709962930.jpg"
+            alt="Fansedu Olympiad Academy"
+            referrerPolicy="no-referrer"
+            className="w-10 h-10 rounded-xl object-cover shadow-md border border-slate-200"
+          />
           <div>
-            <span className="font-sans font-extrabold text-xl tracking-tight text-gray-900 leading-none block">
+            <span className="font-sans font-extrabold text-lg tracking-tight text-gray-900 leading-none block">
               FANSEDU
             </span>
-            <span className="font-sans text-[11px] font-bold tracking-widest text-secondary uppercase block mt-0.5">
-              Academy
+            <span className="font-sans text-[10px] font-extrabold tracking-widest text-blue-600 uppercase block mt-0.5">
+              ACADEMY
             </span>
           </div>
         </div>
