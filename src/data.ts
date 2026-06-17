@@ -277,7 +277,7 @@ export const GAME_SHOWCASES: GameShowcase[] = [
     id: "star",
     title: "Collect The Star",
     description: "Anak memprogram karakter bintang laut atau kepiting lucu melompat mengumpulkan bintang emas jatuh dari langit dengan pengukur skor dinamis.",
-    image: "/images/game_collect_star_1781682999527.jpg",
+    image: "/images/game_collect_star.webp",
     badge: "Kelas Day 3",
     features: [
       "Variabel Skor Diberlakukan",
@@ -290,7 +290,7 @@ export const GAME_SHOWCASES: GameShowcase[] = [
     id: "maze",
     title: "Maze Challenge",
     description: "Anak mendesain labirin penuh jebakan maut. Karakter utama harus digerakkan hati-hati dari start menuju piala emas tanpa menyentuh dinding labirin.",
-    image: "/images/game_maze_challenge_1781683015435.jpg",
+    image: "/images/game_maze_challenge.webp",
     badge: "Kelas Day 4",
     features: [
       "Pemeriksa Warna Sensor Dinding",
@@ -303,7 +303,7 @@ export const GAME_SHOWCASES: GameShowcase[] = [
     id: "adventure",
     title: "Platform Adventure",
     description: "Karya puncak game petualangan 2D side-scroller dengan tebing curam, musuh patroli, efek suara lompatan, dan game-win portal.",
-    image: "/images/game_platform_adventure_1781683034594.jpg",
+    image: "/images/game_platform_adventure.webp",
     badge: "Proyek Final Day 5",
     features: [
       "Animasi Sprite Kanan & Kiri",

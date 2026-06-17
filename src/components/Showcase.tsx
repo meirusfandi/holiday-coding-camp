@@ -34,6 +34,7 @@ export default function Showcase() {
               <div className="relative overflow-hidden aspect-[4/3] bg-gray-100 shrink-0">
                 <img
                   src={game.image}
+                  loading="lazy"
                   alt={`Screenshot ${game.title}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
