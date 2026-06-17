@@ -1,0 +1,6 @@
+{
+  "name": "Game Creator Camp",
+  "description": "Premium Holiday Coding Camp for Kids (8-13 years old) by Fansedu Academy. Learn to build games using Scratch!",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,108 @@
+import React from "react";
+import * as Icons from "lucide-react";
+import { CAMP_BENEFITS, BenefitCard } from "../data";
+import { motion } from "motion/react";
+
+export default function WhyCamp() {
+  // Helper to dynamically get the lucide icon component
+  const getIcon = (name: string) => {
+    // Falls back to Star if icon does not exist
+    const IconComponent = (Icons as any)[name] || Icons.Star;
+    return <IconComponent className="w-8 h-8" />;
+  };
+
+  // Decorative color themes for each of the 4 cards
+  const getCardStyle = (id: string) => {
+    switch (id) {
+      case "game":
+        return {
+          bg: "bg-blue-50/50 hover:bg-blue-50 border-blue-100 hover:border-blue-300",
+          iconBg: "bg-blue-100 text-blue-600",
+          shadowColor: "shadow-blue-500/5"
+        };
+      case "creativity":
+        return {
+          bg: "bg-purple-50/50 hover:bg-purple-50 border-purple-100 hover:border-purple-300",
+          iconBg: "bg-purple-100 text-purple-600",
+          shadowColor: "shadow-purple-500/5"
+        };
+      case "logic":
+        return {
+          bg: "bg-emerald-50/50 hover:bg-emerald-50 border-emerald-100 hover:border-emerald-300",
+          iconBg: "bg-emerald-100 text-emerald-600",
+          shadowColor: "shadow-emerald-500/5"
+        };
+      case "confidence":
+        return {
+          bg: "bg-amber-50/50 hover:bg-amber-50 border-amber-100 hover:border-amber-300",
+          iconBg: "bg-amber-100 text-amber-600",
+          shadowColor: "shadow-amber-500/5"
+        };
+      default:
+        return {
+          bg: "bg-gray-50 hover:bg-gray-100 border-gray-200",
+          iconBg: "bg-gray-200 text-gray-700",
+          shadowColor: "shadow-gray-500/5"
+        };
+    }
+  };
+
+  return (
+    <section id="why-camp" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-bold text-primary tracking-widest uppercase bg-blue-50 px-3.5 py-1.5 rounded-full">
+            MANFAAT UTAMA CAMP
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-4">
+            Mengapa Memilih Game Creator Camp?
+          </h2>
+          <p className="text-gray-500 text-base sm:text-lg mt-4 leading-relaxed">
+            Metode pembelajaran interaktif teruji yang dirancang khusus untuk mengubah screen time pasif anak menjadi bekal keahlian teknologi masa depan yang bermanfaat.
+          </p>
+        </div>
+
+        {/* Benefits Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {CAMP_BENEFITS.map((benefit: BenefitCard, index: number) => {
+            const style = getCardStyle(benefit.id);
+            return (
+              <motion.div
+                key={benefit.id}
+                id={`benefit-card-${benefit.id}`}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`group rounded-3xl p-8 border-2 transition-all duration-300 shadow-sm hover:shadow-xl ${style.shadowColor} ${style.bg} flex flex-col justify-between h-full`}
+              >
+                <div>
+                  {/* Icon Wrapper */}
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 ${style.iconBg}`}>
+                    {getIcon(benefit.iconName)}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">
+                    {benefit.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm mt-3.5 leading-relaxed font-normal">
+                    {benefit.description}
+                  </p>
+                </div>
+
+                {/* Aesthetic Indicator bar */}
+                <div className="w-10 h-1 bg-gray-200 group-hover:bg-primary rounded-full mt-6 transition-colors duration-300" />
+              </motion.div>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+}

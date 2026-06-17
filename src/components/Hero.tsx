@@ -1,0 +1,270 @@
+import React from "react";
+import { Star, MessageCircle, ArrowRight, ShieldCheck, Gamepad2 } from "lucide-react";
+import { motion } from "motion/react";
+
+interface HeroProps {
+  onScrollToRegister: () => void;
+}
+
+export default function Hero({ onScrollToRegister }: HeroProps) {
+  const handleWhatsAppChat = () => {
+    const phoneNumber = "6281234567890";
+    const message = encodeURIComponent(
+      "Halo Fansedu Academy! Saya mau bertanya tentang kelas Holiday Game Creator Camp untuk anak saya."
+    );
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
+  return (
+    <header className="relative overflow-hidden bg-gradient-to-b from-blue-50/70 via-white to-white pb-16 pt-6 md:pb-24">
+      {/* Decorative colored glow spheres */}
+      <div className="absolute top-[-10%] left-[-10%] w-[35%] h-[35%] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-secondary/5 blur-[150px] pointer-events-none" />
+
+      {/* Top Header / Navigation simulation */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex items-center justify-between">
+        <div id="brand-logo" className="flex items-center gap-2">
+          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
+            <Gamepad2 className="w-6 h-6 text-white stroke-[2.5]" />
+          </div>
+          <div>
+            <span className="font-sans font-extrabold text-xl tracking-tight text-gray-900 leading-none block">
+              FANSEDU
+            </span>
+            <span className="font-sans text-[11px] font-bold tracking-widest text-secondary uppercase block mt-0.5">
+              Academy
+            </span>
+          </div>
+        </div>
+
+        <div className="hidden md:flex items-center gap-6">
+          <a href="#why-camp" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
+            Kenapa Kami?
+          </a>
+          <a href="#timeline" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
+            Materi 5 Hari
+          </a>
+          <a href="#showcase" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
+            Karya Murid
+          </a>
+          <a href="#details" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
+            Detail Program
+          </a>
+          <a href="#testimonials" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
+            Testimoni
+          </a>
+        </div>
+
+        <div>
+          <button
+            id="nav-quick-chat-btn"
+            onClick={handleWhatsAppChat}
+            className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-1.5 cursor-pointer shadow-sm"
+          >
+            <MessageCircle className="w-4 h-4 fill-current" />
+            <span>Tanya Kak Irma</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Column: Title / Subtitle & CTAs */}
+          <div className="lg:col-span-7 text-center lg:text-left relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-1.5 bg-secondary/10 px-4 py-1.5 rounded-full mb-6"
+            >
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+              </span>
+              <span className="text-xs font-bold text-secondary tracking-wide uppercase">
+                🚀 Holiday Coding Camp for Kids (Ages 8-13)
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.12] tracking-tight"
+            >
+              Bukan Sekadar Main Game, <br />
+              <span className="bg-gradient-to-r from-primary via-secondary to-blue-500 bg-clip-text text-transparent">
+                Anak Belajar Membuat Game Sendiri!
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal"
+            >
+              Holiday Coding Camp menggunakan Scratch untuk melatih kreativitas, logika, problem solving, dan rasa percaya diri anak dalam menciptakan karya digital nyata.
+            </motion.p>
+
+            {/* Micro-bullet benefits */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-700"
+            >
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-green-500 stroke-[2.5]" />
+                <span className="font-semibold">Sertifikat Resmi</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-green-500 stroke-[2.5]" />
+                <span className="font-semibold">100% Pemula Ramah</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-green-500 stroke-[2.5]" />
+                <span className="font-semibold">Mulai dari Nol</span>
+              </div>
+            </motion.div>
+
+            {/* CTA Group */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <button
+                id="hero-cta-register"
+                onClick={onScrollToRegister}
+                className="bg-primary hover:bg-blue-700 active:scale-95 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/25 hover:shadow-primary/35 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Daftar Sekarang</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+
+              <button
+                id="hero-cta-whatsapp"
+                onClick={handleWhatsAppChat}
+                className="bg-white hover:bg-gray-50 border-2 border-gray-200 active:scale-95 text-gray-800 px-8 py-4 rounded-full font-bold text-lg shadow-md transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center shrink-0">
+                  <MessageCircle className="w-4 h-4 text-white fill-white" />
+                </span>
+                <span>Konsultasi via WhatsApp</span>
+              </button>
+            </motion.div>
+
+            {/* Trust Badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-10 border-t border-gray-150 pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-10"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex text-amber-400">
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <div>
+                  <span className="text-sm font-bold text-gray-900 block leading-tight">4.9 / 5.0</span>
+                  <span className="text-xs text-gray-500">Rating Kepuasan Wali Murid</span>
+                </div>
+              </div>
+
+              <div className="h-6 w-[1px] bg-gray-200 hidden sm:block" />
+
+              <div className="flex items-center gap-2 text-gray-600 text-sm font-medium">
+                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                  <span className="text-primary font-bold text-xs">MIT</span>
+                </div>
+                <span>Sesuai standar kurikulum Scratch MIT</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Hero Image with floaters */}
+          <div className="lg:col-span-5 relative mt-6 lg:mt-0">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7 }}
+              className="relative mx-auto max-w-md lg:max-w-none"
+            >
+              {/* Outer decorative ring */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-secondary/10 rounded-3xl -rotate-3 scale-102 blur-sm" />
+              
+              <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <img
+                  src="/src/assets/images/hero_scratch_camp_1781682976168.jpg"
+                  alt="Anak Senang Belajar Desain Game"
+                  className="w-full object-cover aspect-[4/3] sm:aspect-video lg:aspect-[4/3]"
+                  referrerPolicy="no-referrer"
+                />
+                
+                {/* Visual Glassmorphic stats tag over image */}
+                <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 border border-white/40 shadow-lg flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">Game Creator Camp</span>
+                    <span className="text-sm font-bold text-gray-900 block mt-0.5">Membantu Anak Berkreasi Positif</span>
+                  </div>
+                  <div className="bg-primary/10 text-primary font-extrabold text-xs px-3.5 py-1.5 rounded-lg">
+                    Offline Block Setup
+                  </div>
+                </div>
+              </div>
+
+              {/* Floater Element 1: Scratch Blocks mockup */}
+              <motion.div
+                className="absolute top-4 -left-6 bg-white rounded-2xl p-3 shadow-xl border border-gray-100 flex items-center gap-2.5 max-w-[150px] hidden sm:flex pointer-events-none"
+                animate={{
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <div className="w-7 h-7 rounded-lg bg-yellow-400 flex items-center justify-center font-bold text-white text-xs select-none">
+                  ⚡
+                </div>
+                <div>
+                  <span className="text-[10px] text-gray-400 block font-bold">SCRATCH</span>
+                  <span className="text-xs font-bold text-gray-800 block">when clicked</span>
+                </div>
+              </motion.div>
+
+              {/* Floater Element 2: Small star badge */}
+              <motion.div
+                className="absolute -bottom-6 -right-4 bg-secondary text-white rounded-2xl px-4 py-3.5 shadow-xl flex items-center gap-2.5 pointer-events-none"
+                animate={{
+                  y: [0, 8, 0],
+                }}
+                transition={{
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
+              >
+                <div className="text-2xl">🎮</div>
+                <div>
+                  <span className="text-xs font-bold block leading-none">Min. 3 Game</span>
+                  <span className="text-[10px] text-purple-200 block mt-1">Selesai Dibuat</span>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+
+        </div>
+      </div>
+    </header>
+  );
+}
