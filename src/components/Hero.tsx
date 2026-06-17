@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Star, MessageCircle, ArrowRight, ShieldCheck, Gamepad2, Play, RefreshCw, X } from "lucide-react";
+import { Star, MessageCircle, ArrowRight, ShieldCheck, Gamepad2, Play, RefreshCw, X, Menu } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface HeroProps {
@@ -19,6 +19,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
   const [gameScore, setGameScore] = useState(0);
   const [fallingObjects, setFallingObjects] = useState<FallingObject[]>([]);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleWhatsAppChat = () => {
     const phoneNumber = "6285121277161";
@@ -107,7 +108,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
       <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-secondary/5 blur-[150px] pointer-events-none" />
 
       {/* Top Header / Navigation simulation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex items-center justify-between relative z-30">
         <div id="brand-logo" className="flex items-center gap-2.5 bg-white/50 backdrop-blur-sm px-2 py-1.5 rounded-2xl border border-gray-100/30">
           <img
             src="/src/assets/images/fansedu_logo_1781709962930.jpg"
@@ -143,17 +144,140 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
           </a>
         </div>
 
-        <div>
+        <div className="flex items-center gap-3">
           <button
             id="nav-quick-chat-btn"
             onClick={handleWhatsAppChat}
-            className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-1.5 cursor-pointer shadow-sm"
+            className="hidden sm:flex border-2 border-primary text-primary hover:bg-primary hover:text-white px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 items-center gap-1.5 cursor-pointer shadow-sm"
           >
             <MessageCircle className="w-4 h-4 fill-current" />
             <span>Tanya Aira</span>
           </button>
+
+          {/* Hamburger Menu Button for Mobile */}
+          <button
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="md:hidden p-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded-xl transition-colors cursor-pointer border border-gray-200/50"
+            aria-label="Open navigation menu"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
         </div>
       </div>
+
+      {/* Side Drawer for Mobile Navigation */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black z-50 md:hidden"
+            />
+
+            {/* Sidebar drawer panel */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 bottom-0 left-0 w-[280px] sm:w-[320px] bg-white z-50 p-6 flex flex-col justify-between shadow-2xl md:hidden"
+            >
+              <div>
+                {/* Brand & Close button */}
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100">
+                  <div className="flex items-center gap-2.5">
+                    <img
+                      src="/src/assets/images/fansedu_logo_1781709962930.jpg"
+                      alt="Fansedu Academy"
+                      referrerPolicy="no-referrer"
+                      className="w-9 h-9 rounded-xl object-cover shadow-sm border border-slate-100"
+                    />
+                    <div>
+                      <span className="font-sans font-extrabold text-base tracking-tight text-gray-900 leading-none block">
+                        FANSEDU
+                      </span>
+                      <span className="font-sans text-[9px] font-extrabold tracking-widest text-blue-600 uppercase block mt-0.5">
+                        ACADEMY
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-1.5 text-gray-400 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Mobile Navigation Links */}
+                <nav className="flex flex-col gap-1">
+                  <a
+                    href="#why-camp"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-gray-700 hover:text-primary font-bold text-sm py-3.5 px-3 rounded-xl hover:bg-slate-50 flex items-center justify-between group transition-all"
+                  >
+                    <span>Kenapa Kami?</span>
+                    <span className="text-gray-300 group-hover:text-primary transition-colors text-xs">➔</span>
+                  </a>
+                  <a
+                    href="#timeline"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-gray-700 hover:text-primary font-bold text-sm py-3.5 px-3 rounded-xl hover:bg-slate-50 flex items-center justify-between group transition-all"
+                  >
+                    <span>Materi 5 Hari</span>
+                    <span className="text-gray-300 group-hover:text-primary transition-colors text-xs">➔</span>
+                  </a>
+                  <a
+                    href="#showcase"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-gray-700 hover:text-primary font-bold text-sm py-3.5 px-3 rounded-xl hover:bg-slate-50 flex items-center justify-between group transition-all"
+                  >
+                    <span>Karya Murid</span>
+                    <span className="text-gray-300 group-hover:text-primary transition-colors text-xs">➔</span>
+                  </a>
+                  <a
+                    href="#details"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-gray-700 hover:text-primary font-bold text-sm py-3.5 px-3 rounded-xl hover:bg-slate-50 flex items-center justify-between group transition-all"
+                  >
+                    <span>Detail Program</span>
+                    <span className="text-gray-300 group-hover:text-primary transition-colors text-xs">➔</span>
+                  </a>
+                  <a
+                    href="#testimonials"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-gray-700 hover:text-primary font-bold text-sm py-3.5 px-3 rounded-xl hover:bg-slate-50 flex items-center justify-between group transition-all"
+                  >
+                    <span>Testimoni</span>
+                    <span className="text-gray-300 group-hover:text-primary transition-colors text-xs">➔</span>
+                  </a>
+                </nav>
+              </div>
+
+              {/* Sidebar Footer Menu Area */}
+              <div className="pt-6 border-t border-gray-100">
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    handleWhatsAppChat();
+                  }}
+                  className="w-full bg-primary hover:bg-blue-600 active:scale-95 text-white font-extrabold text-sm py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-md shadow-primary/20 cursor-pointer"
+                >
+                  <MessageCircle className="w-4.5 h-4.5 fill-white" />
+                  <span>Hubungi Kak Aira</span>
+                </button>
+                <p className="text-[10px] text-gray-400 font-bold text-center mt-3">
+                  fansedu.id • Sesi Konsultasi Gratis
+                </p>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
