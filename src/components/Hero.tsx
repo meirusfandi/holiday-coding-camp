@@ -273,7 +273,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                   <span>Hubungi Kak Aira</span>
                 </button>
                 <p className="text-[10px] text-gray-400 font-bold text-center mt-3">
-                  fansedu.id • Sesi Konsultasi Gratis
+                  fansedu.web.id • Sesi Konsultasi Gratis
                 </p>
               </div>
             </motion.div>
@@ -319,7 +319,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal"
             >
-              Holiday Coding Camp menggunakan Scratch untuk melatih kreativitas, logika, problem solving, dan rasa percaya diri anak dalam menciptakan karya digital nyata.
+              Di Holiday Coding Camp, anak tidak hanya menggunakan teknologi, tetapi juga belajar menciptakan game dan proyek digital mereka sendiri sambil mengembangkan kreativitas, logika, dan kemampuan problem solving.
             </motion.p>
 
             {/* Micro-bullet benefits */}
@@ -372,13 +372,13 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
             </motion.div>
 
             {/* Trust Badges */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="mt-10 border-t border-gray-150 pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-10"
-            >
-              <div className="flex items-center gap-3">
+            > */}
+              {/* <div className="flex items-center gap-3">
                 <div className="flex text-amber-400">
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
@@ -390,17 +390,17 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                   <span className="text-sm font-bold text-gray-900 block leading-tight">4.9 / 5.0</span>
                   <span className="text-xs text-gray-500">Rating Kepuasan Wali Murid</span>
                 </div>
-              </div>
+              </div> */}
 
-              <div className="h-6 w-[1px] bg-gray-200 hidden sm:block" />
+              {/* <div className="h-6 w-[1px] bg-gray-200 hidden sm:block" />
 
               <div className="flex items-center gap-2 text-gray-600 text-sm font-medium">
                 <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
                   <span className="text-primary font-bold text-xs">MIT</span>
                 </div>
                 <span>Sesuai standar kurikulum Scratch MIT</span>
-              </div>
-            </motion.div>
+              </div> */}
+            {/* </motion.div> */}
           </div>
 
           {/* Right Column: Hero Image with Scratch Emulator */}
