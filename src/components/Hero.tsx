@@ -111,7 +111,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex items-center justify-between relative z-30">
         <div id="brand-logo" className="flex items-center gap-2.5 bg-white/50 backdrop-blur-sm px-2 py-1.5 rounded-2xl border border-gray-100/30">
           <img
-            src="/src/assets/images/fansedu_logo_1781709962930.jpg"
+            src="/images/fansedu_logo_1781709962930.jpg"
             alt="Fansedu Olympiad Academy"
             referrerPolicy="no-referrer"
             className="w-10 h-10 rounded-xl object-cover shadow-md border border-slate-200"
@@ -191,7 +191,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                 <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100">
                   <div className="flex items-center gap-2.5">
                     <img
-                      src="/src/assets/images/fansedu_logo_1781709962930.jpg"
+                      src="/images/fansedu_logo_1781709962930.jpg"
                       alt="Fansedu Academy"
                       referrerPolicy="no-referrer"
                       className="w-9 h-9 rounded-xl object-cover shadow-sm border border-slate-100"
@@ -438,7 +438,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                         className="absolute inset-0 w-full h-full flex items-center justify-center"
                       >
                         <img
-                          src="/src/assets/images/game_platform_adventure_1781683034594.jpg"
+                          src="/images/game_platform_adventure_1781683034594.jpg"
                           alt="Platformer Scratch Game Buatan Siswa"
                           className="w-full h-full object-cover"
                           referrerPolicy="no-referrer"
