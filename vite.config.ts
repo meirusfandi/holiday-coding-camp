@@ -20,7 +20,7 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3000,
     allowedHosts: [
-      'holidaycodingcamp.fansedu.web.id',
+      'camp.fansedu.web.id',
       '.fansedu.web.id',
     ],
   },

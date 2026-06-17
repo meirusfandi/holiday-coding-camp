@@ -57,7 +57,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2.5">
                 <Globe className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
-                <span className="text-slate-350 font-normal leading-tight">holidaycodingcamp.fansedu.web.id</span>
+                <span className="text-slate-350 font-normal leading-tight">https://camp.fansedu.web.id</span>
               </li>
             </ul>
           </div>
