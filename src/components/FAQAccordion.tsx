@@ -16,10 +16,7 @@ export default function FAQAccordion() {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold text-primary tracking-widest uppercase bg-blue-50 px-3.5 py-1.5 rounded-full">
-            MEMILIKI PERTANYAAN LAINNYA?
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-0">
             Tanya & Jawab (FAQ)
           </h2>
           <p className="text-gray-500 text-sm sm:text-base mt-3 leading-relaxed">
@@ -82,7 +79,7 @@ export default function FAQAccordion() {
         {/* Still confused bottom CTA info */}
         <div className="mt-12 text-center bg-purple-50/40 rounded-2xl p-6 border border-purple-100/50 max-w-2xl mx-auto">
           <p className="text-sm text-gray-700">
-            💬 Ada pertanyaan khusus yang belum terjawab di atas? Chat konsultasi langsung dengan Kak Irma via WhatsApp, gratis tanpa biaya konsultasi apa pun!
+            💬 Ada pertanyaan khusus yang belum terjawab di atas? Chat konsultasi langsung dengan Aira via WhatsApp, gratis tanpa biaya konsultasi apa pun!
           </p>
         </div>
 

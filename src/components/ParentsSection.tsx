@@ -15,11 +15,7 @@ export default function ParentsSection() {
           
           {/* Left Column: Why Parents Love This */}
           <div className="lg:col-span-7">
-            <span className="text-xs font-black text-primary tracking-widest uppercase bg-blue-50 px-3.5 py-1.5 rounded-full inline-flex items-center gap-1.5">
-              <Heart className="w-3.5 h-3.5 text-primary fill-primary" />
-              <span>TESTED & APPROVED BY PARENTS</span>
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-4">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-0">
               Mengapa Para Orang Tua Menyukai Program Ini?
             </h2>
             <p className="text-gray-500 text-sm sm:text-base mt-4 leading-relaxed font-normal">

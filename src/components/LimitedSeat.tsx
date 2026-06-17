@@ -18,7 +18,7 @@ export default function LimitedSeat() {
   }, []);
 
   const handleWhatsAppRedirect = (intent: string) => {
-    const phoneNumber = "6281234567890";
+    const phoneNumber = "6285121277161";
     const message = encodeURIComponent(
       `Halo Fansedu Academy! Saya berminat mendaftarkan anak saya di kelas Game Creator Camp untuk slot ${intent}. Mohon informasi diskon promo terdekatnya. Terima kasih!`
     );
@@ -63,38 +63,19 @@ export default function LimitedSeat() {
 
                 {/* Simulated Wave schedule info wrapper */}
                 <div className="mt-8 space-y-3.5">
-                  <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center font-bold text-xs">
-                        1
+                  <div className="bg-primary/20 backdrop-blur-md rounded-2xl p-5 border border-primary/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center font-bold text-sm text-white shrink-0 shadow-md">
+                        📅
                       </div>
                       <div>
-                        <span className="text-xs text-blue-200 block">GELOMBANG I (JUNI)</span>
-                        <span className="text-sm font-bold block text-white">Full & Kelas Sedang Berjalan</span>
+                        <span className="text-xs text-blue-300 block font-extrabold tracking-wider uppercase">JADWAL KELAS</span>
+                        <span className="text-lg font-black block text-white mt-0.5">Coming Soon (Liburan Akhir Semester 2026)</span>
+                        <p className="text-xs text-blue-100 mt-1 font-normal leading-relaxed">
+                          Jadwal resmi pelaksanaan kelas saat ini sedang dimatangkan. Hubungi kami untuk mengunci promo dan mendaftar antrean kuota perdana!
+                        </p>
                       </div>
                     </div>
-                    <span className="bg-red-500/20 text-red-300 text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full border border-red-500/30">
-                      Closed
-                    </span>
-                  </div>
-
-                  <div className="bg-primary/20 backdrop-blur-md rounded-2xl p-4 border border-primary/20 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-xs shadow-md">
-                        2
-                      </div>
-                      <div>
-                        <span className="text-xs text-blue-300 block font-bold">GELOMBANG II (JULI REGISTRATION)</span>
-                        <span className="text-sm font-black block text-amber-300">Tersisa Sisa {seatsLeft} Kursi Terakhir!</span>
-                      </div>
-                    </div>
-                    <span className="bg-green-500/20 text-green-300 text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full border border-green-500/30 flex items-center gap-1">
-                      <span className="relative flex h-1.5 w-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
-                      </span>
-                      <span>Sisa {seatsLeft} Slot</span>
-                    </span>
                   </div>
                 </div>
 
@@ -137,7 +118,7 @@ export default function LimitedSeat() {
                   <div className="mt-6 space-y-4">
                     <button
                       id="wave2-whatsapp-cta-btn"
-                      onClick={() => handleWhatsAppRedirect("GELOMBANG_II_JULI")}
+                      onClick={() => handleWhatsAppRedirect("PLAN_JUNI_JULI")}
                       className="w-full bg-[#25D366] hover:bg-[#20ba56] active:scale-95 text-white font-extrabold text-md py-4 rounded-full shadow-lg shadow-green-500/25 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <MessageCircle className="w-5 h-5 fill-white" />
@@ -147,13 +128,6 @@ export default function LimitedSeat() {
                     <p className="text-[10px] text-gray-400 text-center leading-relaxed">
                       Seketika setelah tombol ditekan, Anda akan dialihkan ke ruang obrolan WhatsApp resmi dengan Customer Representative Fansedu Academy.
                     </p>
-                  </div>
-
-                  <div className="mt-5 pt-4 border-t border-gray-100 flex items-center gap-2 text-gray-600">
-                    <ShieldCheck className="w-4 h-4 text-primary stroke-[2.5]" />
-                    <span className="text-[11px] font-semibold text-gray-500">
-                      Sistem Pendaftaran Terverifikasi & Aman
-                    </span>
                   </div>
                 </div>
               </div>

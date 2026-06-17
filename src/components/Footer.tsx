@@ -30,18 +30,11 @@ export default function Footer() {
             </div>
 
             <p className="mt-5 text-sm text-slate-400 leading-relaxed font-normal">
-              Fansedu Academy adalah lembaga pendidikan teknologi cilik terdepan yang berkomitmen melahirkan generasi kreator digital baru di Indonesia. Kami merancang kelas coding Scratch, Python, dan Roblox yang interaktif, menantang, dan 100% ramah anak.
+              Fansedu Academy adalah platform pendidikan di bawah Fans Digital Group yang membantu anak-anak dan remaja mengembangkan kemampuan akademik, teknologi, kreativitas, dan problem solving untuk menghadapi era digital.
             </p>
-
-            <div className="mt-6 flex items-center gap-4 text-xs text-slate-400">
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-primary stroke-[2.5]" />
-                <span className="font-semibold">Lembaga Berlisensi Resmi</span>
-              </div>
-            </div>
           </div>
 
-          {/* Column 2: Navigation Links */}
+            {/* Column 2: Navigation Links */}
           <div className="md:col-span-3">
             <h4 className="text-white text-xs font-bold uppercase tracking-wider mb-5">
               Hubungi Kami
@@ -50,17 +43,17 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
-                <span className="text-slate-350 font-normal leading-tight">info@fansedu.com</span>
+                <span className="text-slate-350 font-normal leading-tight">info@fansedu.web.id</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
                 <span className="text-slate-350 font-normal leading-tight">
-                  Jl. Jenderal Sudirman Kav. 21, Kuningan, Jakarta Selatan, DKI Jakarta
+                  Jl Nitikan Baru, Sorosutan, Umbulharjo, Yogyakarta, DI Yogyakarta
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Globe className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
-                <span className="text-slate-350 font-normal leading-tight">www.fansedu.com</span>
+                <span className="text-slate-350 font-normal leading-tight">holidaycodingcamp.fansedu.web.id</span>
               </li>
             </ul>
           </div>
@@ -80,7 +73,7 @@ export default function Footer() {
         {/* Bottom Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
           <p className="text-xs text-slate-500">
-            © 2026 Fansedu Academy. Semua hak cipta dilindungi undang-undang. Scratch dikembangkan oleh Lifelong Kindergarten Group di MIT Media Lab dan didistribusikan secara gratis.
+            © 2026 Fansedu Academy. Semua hak cipta dilindungi undang-undang.
           </p>
           
           <div className="flex items-center gap-1.5 text-xs text-slate-500 leading-none">

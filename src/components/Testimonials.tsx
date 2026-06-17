@@ -40,10 +40,7 @@ export default function Testimonials() {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold text-secondary tracking-widest uppercase bg-purple-50 px-3.5 py-1.5 rounded-full">
-            KATA ALUMNI WALI MURID
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-0">
             Apa Kata Ayah & Bunda?
           </h2>
           <p className="text-gray-500 text-base sm:text-lg mt-4 leading-relaxed font-normal">
@@ -105,25 +102,25 @@ export default function Testimonials() {
         </div>
 
         {/* Highlight Trust Metric Panel */}
-        <div className="mt-16 bg-white rounded-3xl border border-gray-150 p-8 flex flex-col sm:flex-row items-center justify-around gap-6 text-center">
+        <div className="mt-16 bg-white rounded-3xl border border-gray-150 p-8 flex flex-col sm:flex-row items-center justify-around gap-6 text-center shadow-sm">
           <div>
-            <span className="text-4xl font-extrabold text-primary">400+</span>
-            <span className="text-xs text-gray-400 font-bold block mt-1 uppercase tracking-wider">
-              Anak Lulusan Camp
+            <span className="text-4xl font-extrabold text-primary">1:5</span>
+            <span className="text-xs text-gray-500 font-bold block mt-1 uppercase tracking-wider">
+              Rasio Istimewa Mentor & Anak
             </span>
           </div>
           <div className="h-12 w-[1px] bg-gray-150 hidden sm:block" />
           <div>
-            <span className="text-4xl font-extrabold text-secondary">98.4%</span>
-            <span className="text-xs text-gray-400 font-bold block mt-1 uppercase tracking-wider">
-              Rating Kepuasan Bintang 5
+            <span className="text-4xl font-extrabold text-secondary">3 Game</span>
+            <span className="text-xs text-gray-500 font-bold block mt-1 uppercase tracking-wider">
+              Portofolio Karya Siap Pakai
             </span>
           </div>
           <div className="h-12 w-[1px] bg-gray-150 hidden sm:block" />
           <div>
-            <span className="text-4xl font-extrabold text-amber-500">12</span>
-            <span className="text-xs text-gray-400 font-bold block mt-1 uppercase tracking-wider">
-              Kota Besar Se-Indonesia
+            <span className="text-4xl font-extrabold text-amber-500">⭐️⭐️⭐️⭐️⭐️</span>
+            <span className="text-xs text-gray-500 font-bold block mt-1 uppercase tracking-wider">
+              Kepuasan Hasil Kelas Uji Coba
             </span>
           </div>
         </div>

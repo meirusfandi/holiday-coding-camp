@@ -12,13 +12,16 @@ import React from "react";
 import Hero from "./components/Hero";
 import WhyCamp from "./components/WhyCamp";
 import Timeline from "./components/Timeline";
+import MentorSection from "./components/MentorSection";
 import Showcase from "./components/Showcase";
 import ParentsSection from "./components/ParentsSection";
+import TakeHomeDeliverables from "./components/TakeHomeDeliverables";
 import ProgramDetails from "./components/ProgramDetails";
 import Testimonials from "./components/Testimonials";
 import FAQAccordion from "./components/FAQAccordion";
 import LimitedSeat from "./components/LimitedSeat";
 import StickyWhatsApp from "./components/StickyWhatsApp";
+import StickyMobileCTA from "./components/StickyMobileCTA";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -30,7 +33,7 @@ export default function App() {
   };
 
   return (
-    <div id="landing-page-root" className="min-h-screen bg-white text-gray-800 antialiased selection:bg-primary selection:text-white">
+    <div id="landing-page-root" className="min-h-screen bg-white text-gray-800 antialiased selection:bg-primary selection:text-white pb-16 md:pb-0">
       {/* Decorative colored glow spheres in background */}
       <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none" />
 
@@ -43,11 +46,18 @@ export default function App() {
       {/* 3. What Will Kids Learn? (5-Day Interactive Timeline) */}
       <Timeline />
 
+      {/* 3b. Meet the Mentors (Hidden for now as requested)
+      <MentorSection />
+      */}
+
       {/* 4. Final Project Showcase */}
       <Showcase />
 
       {/* 5. Why Parents Love This + 7. What Students Get (Checklist) */}
       <ParentsSection />
+
+      {/* 5b. Take Home Deliverables */}
+      <TakeHomeDeliverables />
 
       {/* 6. Program Details Grid */}
       <ProgramDetails />
@@ -66,6 +76,9 @@ export default function App() {
 
       {/* Floating Interactive WhatsApp Assistant (Sticky CTA) */}
       <StickyWhatsApp />
+
+      {/* Sticky Mobile WA registration bar */}
+      <StickyMobileCTA />
     </div>
   );
 }

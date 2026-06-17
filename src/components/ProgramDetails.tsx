@@ -15,10 +15,7 @@ export default function ProgramDetails() {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold text-primary tracking-widest uppercase bg-blue-50 px-3.5 py-1.5 rounded-full">
-            LOGISTIK KELAS UTAMA
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-0">
             Detail Pelaksanaan Program
           </h2>
           <p className="text-gray-500 text-base sm:text-lg mt-4 leading-relaxed font-normal">

@@ -1,18 +1,103 @@
-import React from "react";
-import { Star, MessageCircle, ArrowRight, ShieldCheck, Gamepad2 } from "lucide-react";
-import { motion } from "motion/react";
+import React, { useState, useEffect } from "react";
+import { Star, MessageCircle, ArrowRight, ShieldCheck, Gamepad2, Play, RefreshCw, X } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface HeroProps {
   onScrollToRegister: () => void;
 }
 
+interface FallingObject {
+  id: number;
+  x: number;
+  y: number;
+  isStar: boolean;
+}
+
 export default function Hero({ onScrollToRegister }: HeroProps) {
+  const [playDemo, setPlayDemo] = useState(false);
+  const [playerX, setPlayerX] = useState(50); // percentage (0 - 100)
+  const [gameScore, setGameScore] = useState(0);
+  const [fallingObjects, setFallingObjects] = useState<FallingObject[]>([]);
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const handleWhatsAppChat = () => {
-    const phoneNumber = "6281234567890";
+    const phoneNumber = "6285121277161";
     const message = encodeURIComponent(
       "Halo Fansedu Academy! Saya mau bertanya tentang kelas Holiday Game Creator Camp untuk anak saya."
     );
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
+  // Simple Mini Scratch Game Loop
+  useEffect(() => {
+    if (!playDemo || !isPlaying) return;
+
+    // Spawn falling objects (Stars + Trash)
+    const spawnInterval = setInterval(() => {
+      setFallingObjects((prev) => {
+        if (prev.length > 5) return prev; // Limit concurrent items
+        return [
+          ...prev,
+          {
+            id: Math.random(),
+            x: Math.random() * 90 + 5, // 5% to 95%
+            y: 0,
+            isStar: Math.random() > 0.35, // 65% stars, 35% obstacle
+          },
+        ];
+      });
+    }, 1200);
+
+    // Update positions & check collisions
+    const physicsInterval = setInterval(() => {
+      setFallingObjects((prev) => {
+        return prev
+          .map((obj) => ({ ...obj, y: obj.y + 4 })) // fall down by 4%
+          .filter((obj) => {
+            // Check collision at bottom (90% - 100% height)
+            if (obj.y >= 88 && obj.y <= 96) {
+              const distance = Math.abs(obj.x - playerX);
+              if (distance < 12) {
+                // Collision!
+                if (obj.isStar) {
+                  setGameScore((s) => s + 10);
+                } else {
+                  setGameScore((s) => Math.max(0, s - 5));
+                }
+                return false; // delete item
+              }
+            }
+            return obj.y < 100; // delete if drops off bottom
+          });
+      });
+    }, 100);
+
+    return () => {
+      clearInterval(spawnInterval);
+      clearInterval(physicsInterval);
+    };
+  }, [playDemo, isPlaying, playerX]);
+
+  // Handle keyboard arrow keys inside game
+  useEffect(() => {
+    if (!playDemo || !isPlaying) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        setPlayerX((x) => Math.max(5, x - 8));
+      } else if (e.key === "ArrowRight") {
+        setPlayerX((x) => Math.min(95, x + 8));
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [playDemo, isPlaying]);
+
+  const startNewGame = () => {
+    setGameScore(0);
+    setFallingObjects([]);
+    setIsPlaying(true);
   };
 
   return (
@@ -62,7 +147,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
             className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 flex items-center gap-1.5 cursor-pointer shadow-sm"
           >
             <MessageCircle className="w-4 h-4 fill-current" />
-            <span>Tanya Kak Irma</span>
+            <span>Tanya Aira</span>
           </button>
         </div>
       </div>
@@ -189,7 +274,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
             </motion.div>
           </div>
 
-          {/* Right Column: Hero Image with floaters */}
+          {/* Right Column: Hero Image with Scratch Emulator */}
           <div className="lg:col-span-5 relative mt-6 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -198,26 +283,184 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
               className="relative mx-auto max-w-md lg:max-w-none"
             >
               {/* Outer decorative ring */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-secondary/10 rounded-3xl -rotate-3 scale-102 blur-sm" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/15 to-secondary/15 rounded-3xl -rotate-2 scale-102 blur-sm" />
               
-              <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img
-                  src="/src/assets/images/hero_scratch_camp_1781682976168.jpg"
-                  alt="Anak Senang Belajar Desain Game"
-                  className="w-full object-cover aspect-[4/3] sm:aspect-video lg:aspect-[4/3]"
-                  referrerPolicy="no-referrer"
-                />
+              <div className="relative bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-800">
                 
-                {/* Visual Glassmorphic stats tag over image */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-2xl p-4 border border-white/40 shadow-lg flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">Game Creator Camp</span>
-                    <span className="text-sm font-bold text-gray-900 block mt-0.5">Membantu Anak Berkreasi Positif</span>
+                {/* Mock Browser Header */}
+                <div className="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-705/50">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-400 inline-block" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-green-400 inline-block" />
                   </div>
-                  <div className="bg-primary/10 text-primary font-extrabold text-xs px-3.5 py-1.5 rounded-lg">
-                    Offline Block Setup
-                  </div>
+                  <span className="text-[10px] text-slate-400 font-mono tracking-widest uppercase">
+                    {playDemo ? "🕹️ Scratch Live Demo Console" : "📷 PLATFORME GAME PREVIEW"}
+                  </span>
+                  <div className="w-7 h-3" />
                 </div>
+
+                <div className="relative aspect-[4/3] w-full bg-slate-950 flex flex-col justify-between overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    {!playDemo ? (
+                      <motion.div
+                        key="screenshot"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute inset-0 w-full h-full flex items-center justify-center"
+                      >
+                        <img
+                          src="/src/assets/images/game_platform_adventure_1781683034594.jpg"
+                          alt="Platformer Scratch Game Buatan Siswa"
+                          className="w-full h-full object-cover"
+                          referrerPolicy="no-referrer"
+                        />
+                        
+                        {/* Play Game Demo Toggler Overlay */}
+                        <div className="absolute inset-0 bg-slate-950/45 flex flex-col items-center justify-center p-6 gap-3 group">
+                          <button
+                            onClick={() => {
+                              setPlayDemo(true);
+                              startNewGame();
+                            }}
+                            className="bg-primary hover:bg-blue-600 active:scale-95 text-white font-extrabold text-sm px-6 py-3.5 rounded-full shadow-lg flex items-center gap-2 group-hover:shadow-primary/30 transition-all cursor-pointer border border-primary/20"
+                          >
+                            <Play className="w-4 h-4 fill-white" />
+                            <span>COBA MAIN GAME DEMO</span>
+                          </button>
+                          
+                          <span className="text-[10.5px] text-white/95 font-bold tracking-wider uppercase bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">
+                            Platformer Adventure (Siswa Day 5 Project)
+                          </span>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="gameplay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="absolute inset-0 w-full h-full flex flex-col text-white"
+                      >
+                        {/* Game Screen Canvas */}
+                        <div className="flex-1 bg-gradient-to-b from-indigo-950 via-slate-900 to-slate-950 relative overflow-hidden">
+                          {/* Sky visual stars */}
+                          <div className="absolute top-8 left-10 text-white/10 text-xs">✨</div>
+                          <div className="absolute top-24 right-16 text-white/10 text-xs">✨</div>
+                          <div className="absolute top-12 right-28 text-white/5 text-xs">✨</div>
+
+                          {/* Score Board Top HUD */}
+                          <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10 bg-slate-900/80 backdrop-blur-sm rounded-lg px-2.5 py-1.5 border border-slate-800">
+                            <span className="text-xs font-black text-amber-400 flex items-center gap-1 select-none">
+                              ⭐ SCORE: {gameScore}
+                            </span>
+                            <div className="flex items-center gap-1.5">
+                              {!isPlaying ? (
+                                <button
+                                  onClick={startNewGame}
+                                  className="text-[10px] bg-primary hover:bg-blue-600 font-bold px-2 py-1 rounded flex items-center gap-1 cursor-pointer"
+                                >
+                                  <RefreshCw className="w-2.5 h-2.5" />
+                                  <span>Restart</span>
+                                </button>
+                              ) : (
+                                <span className="text-[9px] text-green-400 font-bold animate-pulse uppercase tracking-wider flex items-center gap-1">
+                                  <span className="h-1.5 w-1.5 rounded-full bg-green-500 inline-block" />
+                                  Ready!
+                                </span>
+                              )}
+                              <button
+                                onClick={() => setPlayDemo(false)}
+                                className="text-slate-400 hover:text-white p-0.5"
+                                title="Exit"
+                              >
+                                <X className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Falling Objects rendering */}
+                          {fallingObjects.map((obj) => (
+                            <div
+                              key={obj.id}
+                              className="absolute transition-all duration-100 ease-linear transform -translate-x-1/2 -translate-y-1/2 select-none"
+                              style={{ left: `${obj.x}%`, top: `${obj.y}%` }}
+                            >
+                              {obj.isStar ? (
+                                <span className="text-2xl animate-bounce filter drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]">
+                                  ⭐️
+                                </span>
+                              ) : (
+                                <span className="text-xl filter drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]">
+                                  ☄️
+                                </span>
+                              )}
+                            </div>
+                          ))}
+
+                          {/* Character Sprite at Bottom */}
+                          <div
+                            className="absolute bottom-4 h-10 w-10 bg-amber-400 rounded-xl flex items-center justify-center text-xl shadow-lg border border-white/20 select-none transition-all duration-150 ease-out transform -translate-x-1/2"
+                            style={{ left: `${playerX}%` }}
+                          >
+                            🐱
+                          </div>
+                        </div>
+
+                        {/* Interactive Mobile-Friendly Game Controller */}
+                        <div className="bg-slate-900 border-t border-slate-800 p-3 flex items-center justify-between gap-4 select-none">
+                          <div className="flex items-center gap-1 shrink-0">
+                            <span className="text-[10px] text-slate-400 font-semibold block leading-none">
+                              Klik tombol / pakai keyboard <span className="text-blue-400 font-bold font-mono">← →</span>
+                            </span>
+                          </div>
+                          
+                          <div className="flex items-center gap-2">
+                            <button
+                              onTouchStart={() => setPlayerX((x) => Math.max(5, x - 12))}
+                              onClick={() => setPlayerX((x) => Math.max(5, x - 12))}
+                              className="bg-slate-800 hover:bg-slate-700 active:scale-90 text-white font-black text-sm px-4 py-2.5 rounded-lg border border-slate-700 select-none cursor-pointer"
+                            >
+                              ◀️ KIRI
+                            </button>
+                            <button
+                              onTouchStart={() => setPlayerX((x) => Math.min(95, x + 12))}
+                              onClick={() => setPlayerX((x) => Math.min(95, x + 12))}
+                              className="bg-slate-800 hover:bg-slate-700 active:scale-90 text-white font-black text-sm px-4 py-2.5 rounded-lg border border-slate-700 select-none cursor-pointer"
+                            >
+                              KANAN ▶️
+                            </button>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Simulated Game Console Status Tag */}
+                <div className="bg-slate-800 p-4 border-t border-slate-705/30 flex items-center justify-between">
+                  <div>
+                    <span className="text-[9px] font-bold text-primary uppercase tracking-wider block">Game Client Emulator</span>
+                    <span className="text-xs font-semibold text-slate-300 block mt-0.5">
+                      {playDemo ? `Skor Anda: ${gameScore} - Hebat!` : "Membantu anak menyalurkan hobi game"}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      if (playDemo) {
+                        setPlayDemo(false);
+                      } else {
+                        setPlayDemo(true);
+                        startNewGame();
+                      }
+                    }}
+                    className="text-[10px] font-extrabold bg-slate-700 text-slate-200 hover:bg-slate-600 px-3.5 py-1.5 rounded-lg tracking-wider uppercase border border-slate-600 cursor-pointer"
+                  >
+                    {playDemo ? "Lihat Layout" : "Main Demo"}
+                  </button>
+                </div>
+
               </div>
 
               {/* Floater Element 1: Scratch Blocks mockup */}

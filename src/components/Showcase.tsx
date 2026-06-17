@@ -10,14 +10,11 @@ export default function Showcase() {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold text-primary tracking-widest uppercase bg-blue-50 px-3.5 py-1.5 rounded-full">
-            PREVIEW PROJECT GAME
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-4">
-            Ini Dia Game Keren Buatan Siswa!
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-0">
+            Game Keren Yang Akan Dibuat Siswa!
           </h2>
           <p className="text-gray-500 text-base sm:text-lg mt-4 leading-relaxed">
-            Bukan sekadar mencoret-coret kode abstrak. Siswa mempraktikkan langsung teori logika dengan membangun 3 game interaktif utuh yang bisa langsung dimainkan keluarga.
+            Bukan sekadar mencoret-coret kode abstrak. Anak Anda akan mempraktikkan langsung teori logika dengan merakit 3 game interaktif berbeda yang selaras dengan kurikulum 5 hari belajar camp.
           </p>
         </div>
 
@@ -79,7 +76,7 @@ export default function Showcase() {
                 {/* Programmed Features Checklist */}
                 <div className="mt-6 pt-5 border-t border-gray-100">
                   <span className="text-[10px] font-extrabold text-secondary uppercase tracking-widest block mb-3">
-                    LOGIKA YANG DIPROGRAM ANAK
+                    LOGIKA YANG AKAN DIPROGRAM ANAK
                   </span>
                   
                   <ul className="space-y-2">
@@ -102,7 +99,7 @@ export default function Showcase() {
         {/* Call-to-action warning */}
         <div className="mt-12 text-center bg-blue-50/40 rounded-2xl p-6 border border-blue-100/50 max-w-3xl mx-auto">
           <p className="text-sm font-semibold text-gray-700">
-            💡 <span className="text-secondary font-bold">Catatan Orang Tua:</span> Semua game di atas dirancang dari nol oleh siswa sendiri. Bahkan anak berusia 8-10 tahun pun berhasil merakit ini dengan instruksi menyenangkan dari kami!
+            💡 <span className="text-secondary font-bold">Catatan Orang Tua:</span> Semua game di atas akan dirancang dari nol oleh anak sendiri. Bahkan anak berusia 8-10 tahun pun akan dibimbing hingga berhasil merakit game ini langkah demi langkah dengan instruksi menyenangkan dari kami!
           </p>
         </div>
 

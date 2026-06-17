@@ -36,10 +36,7 @@ export default function Timeline() {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold text-secondary tracking-widest uppercase bg-purple-150 px-3.5 py-1.5 rounded-full bg-purple-50">
-            SILABUS BELAJAR 5 HARI
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mt-0">
             Kurikulum Menyenangkan & Terstruktur
           </h2>
           <p className="text-gray-500 text-base sm:text-lg mt-4 leading-relaxed">
