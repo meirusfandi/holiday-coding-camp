@@ -84,7 +84,6 @@ export default function MentorSection() {
                     <img
                       src={mentor.avatar}
                       alt={mentor.name}
-                      loading="lazy"
                       referrerPolicy="no-referrer"
                       className="w-16 h-16 rounded-2xl object-cover border-2 border-primary/20 shadow-sm"
                     />

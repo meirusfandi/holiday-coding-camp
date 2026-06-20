@@ -14,7 +14,7 @@ export default function Showcase() {
             Game Keren Yang Akan Dibuat Siswa!
           </h2>
           <p className="text-gray-500 text-base sm:text-lg mt-4 leading-relaxed">
-            Bukan sekadar mencoret-coret kode abstrak. Anak Anda akan mempraktikkan langsung teori logika dengan merakit 3 game interaktif berbeda yang selaras dengan kurikulum 5 hari belajar camp.
+            Bukan sekadar mencoret-coret kode abstrak. Anak Anda akan mempraktikkan langsung teori logika dengan merakit game interaktif 2D & 3D di Roblox Studio atau Scratch yang seru dimainkan bersama keluarga dan teman!
           </p>
         </div>
 
@@ -34,7 +34,6 @@ export default function Showcase() {
               <div className="relative overflow-hidden aspect-[4/3] bg-gray-100 shrink-0">
                 <img
                   src={game.image}
-                  loading="lazy"
                   alt={`Screenshot ${game.title}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"

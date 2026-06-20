@@ -111,9 +111,8 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex items-center justify-between relative z-30">
         <div id="brand-logo" className="flex items-center gap-2.5 bg-white/50 backdrop-blur-sm px-2 py-1.5 rounded-2xl border border-gray-100/30">
           <img
-            src="/images/fansedu_logo.webp"
+            src="/src/assets/images/fansedu_logo_1781709962930.jpg"
             alt="Fansedu Olympiad Academy"
-            loading="lazy"
             referrerPolicy="no-referrer"
             className="w-10 h-10 rounded-xl object-cover shadow-md border border-slate-200"
           />
@@ -131,17 +130,14 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
           <a href="#why-camp" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
             Kenapa Kami?
           </a>
-          <a href="#timeline" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
-            Materi 5 Hari
+          <a href="#learning-path" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
+            Jalur & Kurikulum
           </a>
           <a href="#showcase" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
             Karya Murid
           </a>
           <a href="#details" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
             Detail Program
-          </a>
-          <a href="#testimonials" className="text-gray-600 hover:text-primary font-medium text-sm transition-colors">
-            Testimoni
           </a>
         </div>
 
@@ -192,9 +188,8 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                 <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100">
                   <div className="flex items-center gap-2.5">
                     <img
-                      src="/images/fansedu_logo.webp"
+                      src="/src/assets/images/fansedu_logo_1781709962930.jpg"
                       alt="Fansedu Academy"
-                      loading="lazy"
                       referrerPolicy="no-referrer"
                       className="w-9 h-9 rounded-xl object-cover shadow-sm border border-slate-100"
                     />
@@ -226,11 +221,11 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                     <span className="text-gray-300 group-hover:text-primary transition-colors text-xs">➔</span>
                   </a>
                   <a
-                    href="#timeline"
+                    href="#learning-path"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-gray-700 hover:text-primary font-bold text-sm py-3.5 px-3 rounded-xl hover:bg-slate-50 flex items-center justify-between group transition-all"
                   >
-                    <span>Materi 5 Hari</span>
+                    <span>Jalur & Kurikulum</span>
                     <span className="text-gray-300 group-hover:text-primary transition-colors text-xs">➔</span>
                   </a>
                   <a
@@ -249,14 +244,6 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                     <span>Detail Program</span>
                     <span className="text-gray-300 group-hover:text-primary transition-colors text-xs">➔</span>
                   </a>
-                  <a
-                    href="#testimonials"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-gray-700 hover:text-primary font-bold text-sm py-3.5 px-3 rounded-xl hover:bg-slate-50 flex items-center justify-between group transition-all"
-                  >
-                    <span>Testimoni</span>
-                    <span className="text-gray-300 group-hover:text-primary transition-colors text-xs">➔</span>
-                  </a>
                 </nav>
               </div>
 
@@ -273,7 +260,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                   <span>Hubungi Kak Aira</span>
                 </button>
                 <p className="text-[10px] text-gray-400 font-bold text-center mt-3">
-                  fansedu.web.id • Sesi Konsultasi Gratis
+                  fansedu.id • Sesi Konsultasi Gratis
                 </p>
               </div>
             </motion.div>
@@ -297,7 +284,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
               </span>
               <span className="text-xs font-bold text-secondary tracking-wide uppercase">
-                🚀 Holiday Coding Camp for Kids (Ages 8-13)
+                🚀 Holiday Coding Camp SD, SMP, SMA (Ages 7-18)
               </span>
             </motion.div>
 
@@ -307,9 +294,9 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.12] tracking-tight"
             >
-              Bukan Sekadar Main Game, <br />
-              <span className="bg-gradient-to-r from-primary via-secondary to-blue-500 bg-clip-text text-transparent">
-                Anak Belajar Membuat Game Sendiri!
+              Anak Suka Main Roblox? <br />
+              <span className="bg-gradient-to-r from-primary via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                Saatnya Belajar Membuat Game Roblox Sendiri!
               </span>
             </motion.h1>
 
@@ -319,7 +306,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal"
             >
-              Di Holiday Coding Camp, anak tidak hanya menggunakan teknologi, tetapi juga belajar menciptakan game dan proyek digital mereka sendiri sambil mengembangkan kreativitas, logika, dan kemampuan problem solving.
+              Holiday Coding Camp untuk SD, SMP, dan SMA. Belajar Scratch, Roblox Studio, dan AI melalui project nyata yang menyenangkan dan interaktif.
             </motion.p>
 
             {/* Micro-bullet benefits */}
@@ -327,19 +314,23 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-700"
+              className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-700 font-medium"
             >
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-full border border-gray-150">
                 <ShieldCheck className="w-4 h-4 text-green-500 stroke-[2.5]" />
-                <span className="font-semibold">Sertifikat Resmi</span>
+                <span>Online Live Class</span>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-full border border-gray-150">
                 <ShieldCheck className="w-4 h-4 text-green-500 stroke-[2.5]" />
-                <span className="font-semibold">100% Pemula Ramah</span>
+                <span>Sertifikat Kelulusan</span>
               </div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-full border border-gray-150">
                 <ShieldCheck className="w-4 h-4 text-green-500 stroke-[2.5]" />
-                <span className="font-semibold">Mulai dari Nol</span>
+                <span>Project Portfolio</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-full border border-gray-150">
+                <ShieldCheck className="w-4 h-4 text-green-500 stroke-[2.5]" />
+                <span>Mentor Berpengalaman</span>
               </div>
             </motion.div>
 
@@ -372,13 +363,13 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
             </motion.div>
 
             {/* Trust Badges */}
-            {/* <motion.div
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="mt-10 border-t border-gray-150 pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-10"
-            > */}
-              {/* <div className="flex items-center gap-3">
+            >
+              <div className="flex items-center gap-3">
                 <div className="flex text-amber-400">
                   <Star className="w-5 h-5 fill-current" />
                   <Star className="w-5 h-5 fill-current" />
@@ -390,17 +381,17 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                   <span className="text-sm font-bold text-gray-900 block leading-tight">4.9 / 5.0</span>
                   <span className="text-xs text-gray-500">Rating Kepuasan Wali Murid</span>
                 </div>
-              </div> */}
+              </div>
 
-              {/* <div className="h-6 w-[1px] bg-gray-200 hidden sm:block" />
+              <div className="h-6 w-[1px] bg-gray-200 hidden sm:block" />
 
               <div className="flex items-center gap-2 text-gray-600 text-sm font-medium">
                 <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                  <span className="text-primary font-bold text-xs">MIT</span>
+                  <span className="text-primary font-bold text-xs">A++</span>
                 </div>
-                <span>Sesuai standar kurikulum Scratch MIT</span>
-              </div> */}
-            {/* </motion.div> */}
+                <span>Tingkat Kelulusan Kreatif Dunia Roblox & Scratch</span>
+              </div>
+            </motion.div>
           </div>
 
           {/* Right Column: Hero Image with Scratch Emulator */}
@@ -440,8 +431,7 @@ export default function Hero({ onScrollToRegister }: HeroProps) {
                         className="absolute inset-0 w-full h-full flex items-center justify-center"
                       >
                         <img
-                          src="/images/game_platform_adventure.webp"
-                          loading="lazy"
+                          src="/src/assets/images/game_platform_adventure_1781683034594.jpg"
                           alt="Platformer Scratch Game Buatan Siswa"
                           className="w-full h-full object-cover"
                           referrerPolicy="no-referrer"

@@ -51,32 +51,171 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface ProgramPath {
+  id: string;
+  title: string;
+  age: string;
+  sessions: string;
+  description: string;
+  benefits: string[];
+  earlyBirdPrice: string;
+  normalPrice: string;
+  badge?: string;
+  isPopular?: boolean;
+}
+
+export interface CurriculumBlock {
+  title: string;
+  topics: string[];
+}
+
 export const CAMP_BENEFITS: BenefitCard[] = [
-  {
-    id: "game",
-    iconName: "Gamepad2",
-    title: "Buat Game Sendiri",
-    description: "Anak tidak lagi hanya menjadi konsumen game (player), melainkan belajar logika di balik game dan menciptakan karyanya sendiri (creator) dari nol.",
-  },
-  {
-    id: "creativity",
-    iconName: "Palette",
-    title: "Asah Kreativitas",
-    description: "Menggambar karakter, mendesain latar permainan, dan menyusun alur cerita game dengan pilihan visual Scratch yang kaya warna dan interaktif.",
-  },
   {
     id: "logic",
     iconName: "BrainCircuit",
-    title: "Latih Logika & Problem Solving",
-    description: "Belajar algoritma sederhana, percabangan (if-else), logika pengulangan (loops), serta memecahkan masalah (debugging) ketika baris kode mengalami kesalahan.",
+    title: "🧠 Melatih Logika & Problem Solving",
+    description: "Anak belajar berpikir runtut mendesain aturan game, memecahkan masalah (debugging), dan melatih computational thinking sejak usia dini.",
   },
   {
-    id: "confidence",
+    id: "active",
+    iconName: "Gamepad2",
+    title: "🎮 Bukan Cuma Main, Sambil Bikin Game",
+    description: "Mengalihkan kegemaran screen-time anak yang pasif menjadi produktif-aktif merakit mekanisme game mekanikal miliknya sendiri.",
+  },
+  {
+    id: "tech-ai",
     iconName: "Sparkles",
-    title: "Bangun Kepercayaan Diri",
-    description: "Mempresentasikan hasil karya game buatan sendiri di hadapan mentor dan teman sekelas pada hari terakhir untuk menumbuhkan jiwa komunikatif.",
+    title: "💡 Belajar Teknologi & AI Sejak Dini",
+    description: "Memperkenalkan anak pada ekosistem teknologi modern, pemanfaatan asisten AI cerdas secara bijak dalam menunjang kreativitas.",
+  },
+  {
+    id: "portfolio",
+    iconName: "FolderHeart",
+    title: "🚀 Membangun Portfolio Digital Anak",
+    description: "Karya game yang berhasil dideploy dapat dimainkan kembali oleh keluarga serta dipamerkan dalam galeri portofolio global.",
+  },
+  {
+    id: "cert-graduation",
+    iconName: "Award",
+    title: "🏆 Sertifikat & Project Akhir",
+    description: "Apresiasi e-certificate dengan ID lisensi unik resmi dari Fansedu Academy serta presentasi karya orisinal hasil kreasi anak.",
+  },
+  {
+    id: "mentors",
+    iconName: "Users",
+    title: "👨‍🏫 Dibimbing Mentor Berpengalaman",
+    description: "Dipandu asisten pengajar sabar dan mentor ahli interaktif dua arah, membantu dari dasar hingga rilis tuntas tanpa rasa bosan.",
   },
 ];
+
+export const PROGRAM_PATHS: ProgramPath[] = [
+  {
+    id: "scratch-creator",
+    title: "Scratch Game Creator",
+    age: "Usia 7-12 Tahun",
+    sessions: "4 Sesi Camp",
+    description: "Belajar logika dasar rekayasa algoritma dan rilis game visual interaktif ditarik lewat blocks modern tanpa ribet sintaksis teks.",
+    benefits: [
+      "Menguasai alur logika sekuensial",
+      "Membuat rintangan fisika & skor",
+      "Mendesain animasi custom sendiri",
+      "Sempurna untuk pemula absolut"
+    ],
+    earlyBirdPrice: "Rp299.000",
+    normalPrice: "Rp499.000",
+    badge: "PEMULA"
+  },
+  {
+    id: "roblox-creator",
+    title: "Roblox Game Creator",
+    age: "Usia 9-15 Tahun",
+    sessions: "8 Sesi Camp",
+    description: "Gunakan Roblox Studio untuk membangun 3D level design, rintangan maut (obby), mengoleksi koin, dan mempublikasikan game ke Roblox global.",
+    benefits: [
+      "Menguasai Editor Roblox Studio 3D",
+      "Mendesain level Obby & Platformer",
+      "Mekanisme Checkpoint & Koin",
+      "Publish hasil karya langsung ke Roblox"
+    ],
+    earlyBirdPrice: "Rp599.000",
+    normalPrice: "Rp899.000",
+    badge: "MOST POPULAR",
+    isPopular: true
+  },
+  {
+    id: "roblox-scripting",
+    title: "Roblox Scripting Camp",
+    age: "Usia 12-18 Tahun",
+    sessions: "8 Sesi Camp",
+    description: "Melompat lebih tinggi ke level profesional dengan belajar bahasa pemrograman nyata Lua di Roblox Studio untuk rilis game interaktif lanjutan.",
+    benefits: [
+      "Belajar sintaks program Lua nyata",
+      "Sistem Leaderboard global",
+      "Penyimpanan database DataStore",
+      "Monetisasi & rancang sistem Shopping"
+    ],
+    earlyBirdPrice: "Rp999.000",
+    normalPrice: "Rp1.499.000",
+    badge: "ADVANCED CODER"
+  }
+];
+
+export const CURRICULUM_TABS: Record<string, CurriculumBlock[]> = {
+  "scratch-creator": [
+    {
+      title: "Hari 1-2: Dunia Blok & Alur Gerak",
+      topics: [
+        "Intro Coding: Kenalan dengan Scratch Interface & Sumbu Koordinat X-Y",
+        "Motion & Event: Memprogram sprite bergerak dinamis lewat input keyboard",
+        "Costumes & Logic: Merias animasi karakter berubah wujud saat melompat",
+      ]
+    },
+    {
+      title: "Hari 3-4: Game Mekanik & Publikasi",
+      topics: [
+        "Variables & Score: Memprogram variabel penambah poin dan pengurangan nyawa",
+        "Win-Lose States: Mengatur trigger perpindahan backdrop level otomatis",
+        "Publish Project: Mengunggah hasil game ke website Scratch global",
+      ]
+    }
+  ],
+  "roblox-creator": [
+    {
+      title: "Hari 1-4: 3D Level Design & Obby Game",
+      topics: [
+        "Roblox Studio Dasar: Navigasi, manipulasi objek 3D (scale, rotate, material)",
+        "Building Complex Maps: Merakit pulau melayang dan rintangan lava maut",
+        "Obby Mechanics: Membuat rintangan bergerak dinamis & laser sensor berbahaya",
+      ]
+    },
+    {
+      title: "Hari 5-8: Sistem Koin, Scoreboard & Publikasi",
+      topics: [
+        "Checkpoints: Menyimpan posisi respawn koordinat checkpoint aman bagi pemain",
+        "Coin Collection & Leaderboard: Menyusun sistem koin melayang serta papan nilai",
+        "Game Publishing: Melengkapi thumbnail game, deskripsi, dan publish online ke Roblox",
+      ]
+    }
+  ],
+  "roblox-scripting": [
+    {
+      title: "Hari 1-4: Fondasi Logika Lua Programming",
+      topics: [
+        "Lua Programming Basics: Pemakaian variable, tipe data, bersyarat IF-THEN",
+        "Functions & Custom Events: Menulis baris kode modular pencetus aksi berulang",
+        "Kill Bricks & Obstacles: Memprogram blok mematikan lewat skrip Lua dinamis",
+      ]
+    },
+    {
+      title: "Hari 5-8: Database, Shop, & Monetisasi",
+      topics: [
+        "DataStore System: Menyimpan jumlah koin & progress pemain secara permanen di server",
+        "Shop System Mechanics: Mematangkan antarmuka pembelian item pelengkap karakter",
+        "Monetization Basics: Mengatur monetisasi dasar, gamepass, rilis ke publik Indonesia",
+      ]
+    }
+  ]
+};
 
 export const TIMELINE_5_DAYS: DayTimeline[] = [
   {
@@ -170,23 +309,24 @@ export const PARENTS_BENEFITS: ParentBenefit[] = [
 ];
 
 export const PROGRAM_DETAILS: ProgramDetail[] = [
-  { id: "duration", label: "Durasi Belajar", value: "5 Sesi Intensif (Hari)", iconName: "CalendarRange" },
-  { id: "schedule", label: "Waktu Kelas", value: "09.00 - 12.00 WIB", iconName: "Clock" },
+  { id: "duration", label: "Durasi Belajar", value: "Sesi Intensif Terpandu", iconName: "CalendarRange" },
+  { id: "schedule", label: "Pilihan Waktu", value: "Batch Pagi / Sore Tersedia", iconName: "Clock" },
   { id: "platform", label: "Sistem Belajar", value: "Live Interactive (Zoom)", iconName: "Video" },
-  { id: "tool", label: "Software Pendukung", value: "Scratch (100% Free / Online)", iconName: "Command" },
+  { id: "tool", label: "Software Pendukung", value: "Roblox Studio & Scratch (Free)", iconName: "Command" },
   { id: "size", label: "Kapasitas Kelas", value: "Sangat Terbatas (10-15 Murid)", iconName: "Users" },
-  { id: "age", label: "Rekomendasi Usia", value: "8 - 13 Tahun (SD & SMP)", iconName: "GraduationCap" },
+  { id: "age", label: "Rekomendasi Usia", value: "7 - 18 Tahun (SD, SMP & SMA)", iconName: "GraduationCap" },
   { id: "cert", label: "Sertifikat Kelulusan", value: "E-Certificate Resmi Tersedia", iconName: "Award" },
-  { id: "recording", label: "Rekaman Kelas", value: "Video Live Recording Diberikan", iconName: "Tv" },
+  { id: "recording", label: "Rekaman Sesi", value: "Video Live Recording Diberikan", iconName: "Tv" },
 ];
 
 export const GET_CHECKLIST: string[] = [
-  "Live Interactive Zoom Class bareng Mentor Ahli",
-  "E-Certificate Kelulusan Resmi Fansedu Academy",
+  "Live Online Class (Interaktif Dua Arah Bersama Mentor)",
   "Modul Belajar Digital & Panduan Langkah-demi-langkah",
-  "Source Code Project Files Scratch Semua Game Kelas",
-  "Akses Rekaman Video Sesi Kelas (Bisa Diputar Ulang)",
-  "Grup Komunitas Eksklusif untuk Diskusi & Konsultasi",
+  "Akses Rekaman Kelas Lengkap (Bisa Diputar Kembali)",
+  "E-Certificate Kelulusan Resmi dari Fansedu Academy",
+  "Portfolio Kumpulan Project Game Orisinal Milik Anak",
+  "Grup Komunitas Eksklusif untuk Bimbingan & Tanya Jawab",
+  "Konsultasi dan Review Khusus dari Mentor Ahli"
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -196,7 +336,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Orang Tua dari Rafi (10 Tahun)",
     location: "Jakarta Barat",
     avatarSeed: "sarah",
-    quote: "Wah, anak saya senang sekali! Biasanya cuma main Roblox seharian, sekarang tiap hari sibuk utak-atik Scratch bikin game sendiri dan pamer ke sepupunya. Nilai plus juga buat mentornya yang sabar banget ngarahin anak-anak SD.",
+    quote: "Wah, anak saya senang sekali! Biasanya cuma main Roblox seharian, sekarang tiap hari sibuk utak-atik Roblox Studio bikin game sendiri dan pamer ke sepupunya. Nilai plus juga buat mentornya yang sabar banget ngarahin anak-anak SD.",
     rating: 5,
   },
   {
@@ -222,95 +362,133 @@ export const TESTIMONIALS: Testimonial[] = [
 export const FAQS: FAQItem[] = [
   {
     id: "faq-1",
-    question: "Apakah anak saya harus punya pengalaman coding sebelumnya?",
-    answer: "Tidak perlu sama sekali! Camp ini dirancang khusus bagi pemula lengkap (beginners). Mentor kami akan mengajarkan konsep dari dasar menggunakan pemrograman visual Scratch (blok seret dan lepas) sehingga terasa sangat natural dan menyenangkan bagi anak-anak.",
+    question: "Apakah anak harus bisa menulis coding sebelumnya?",
+    answer: "Tidak perlu sama sekali! Program Holiday Coding Camp ini dirancang bersahabat untuk pemula absolut (beginners). Mentor kami akan memandu langkah-langkah secara bertahap mulai dari tingkat Scratch (pemrograman visual blok seret-lepas) hingga dasar Roblox Studio."
   },
   {
     id: "faq-2",
-    question: "Apa itu Scratch dan apakah gratis?",
-    answer: "Scratch adalah software pemrograman visual berstandar internasional yang dikembangkan oleh MIT Media Lab (Boston, USA). Scratch 100% gratis, bebas iklan, dan sangat aman untuk anak-anak. Aksesnya langsung melalui browser (Google Chrome/Safari) tanpa biaya tambahan apa pun.",
+    question: "Apakah program ini cocok untuk anak pemula?",
+    answer: "Sangat cocok! Kami membagi alur belajar sesuai jenjang kognitif usia anak. Kurikulum Scratch Game Creator dirancang ramah anak SD, sedangkan Roblox Creator dan Scripting sangat pas untuk anak SMP dan SMA guna mengasah computational thinking."
   },
   {
     id: "faq-3",
-    question: "Perangkat apa saja yang wajib disiapkan untuk ikut kelas?",
-    answer: "Anak memerlukan Laptop atau Komputer Desktop (Windows/macOS) dengan camera web aktif, koneksi internet stabil (minimal 10 Mbps), serta aplikasi Zoom terinstal karena pembelajaran berjalan Live Dua Arah. Kami juga sangat menyarankan penggunaan mouse eksternal untuk mempermudah anak menyeret blok program.",
+    question: "Perangkat laptop minimal seperti apa yang dibutuhkan?",
+    answer: "Untuk Scratch, laptop standar apa saja dengan browser modern (Google Chrome) bisa. Untuk Roblox Studio, diperlukan Laptop atau PC (Windows/macOS) dengan minimal RAM 4-8 GB, prosesor Core i3/Ryzen 3 atau lebih baru, koneksi internet, serta mouse fisik agar anak mudah menyusun koordinat 3D."
   },
   {
     id: "faq-4",
-    question: "Apakah akan diberikan video rekaman sesi belajar?",
-    answer: "Ya, betul sekali! Setiap kali kelas berakhir, sistem kami akan langsung menyimpan rekaman video Zoom beresolusi tinggi. Link menonton rekaman akan dibagikan maksimal 2 jam setelah kelas usai, sehingga anak yang berhalangan hadir atau ingin mengulang materi bisa menyimaknya lagi secara santai.",
+    question: "Apakah kelas direkam kalau anak berhalangan hadir?",
+    answer: "Betul sekali, setiap sesi interaksi Live Zoom direkam secara utuh. Video resolusi tinggi akan kami bagikan maksimal 2 jam setelah kelas usai, sehingga anak yang melawatkan kelas atau ingin mengulang materi mandiri bisa menyimaknya berulang kali."
   },
   {
     id: "faq-5",
-    question: "Bagaimana jika anak tiba-tiba mengalami error atau tertinggal penjelasan mentor?",
-    answer: "Kami sadar kendala praktis anak-anak bervariasi. Oleh karena itu, rasio mentor kami sangat ideal (10-15 murid didampingi 1 Lead Mentor & 1 Asisten Mentor). Anak tinggal melakukan interupsi suara atau ketik di kolom chat Zoom, asisten mentor akan siap membantu melalui screenshare dua arah mandiri.",
+    question: "Apakah siswa mendapatkan sertifikat kelulusan?",
+    answer: "Ya. Setiap peserta yang menyelesaikan proyek game akhir akan memperoleh E-Certificate Kelulusan Resmi berlisensi unik dari Fansedu Academy sebagai kredensial prestasi akademik portofolio digital miliknya."
   },
   {
     id: "faq-6",
-    question: "Apakah ada batas usia minimal atau maksimal anak?",
-    answer: "Fokus program Holiday Camp ini adalah anak dengan rentang usia kognitif 8 hingga 13 tahun (kurang lebih kelas 3 SD hingga 1 SMP). Jika anak Anda di luar rentang usia tersebut (misal usia 7 tahun namun sudah lancar membaca/mengetik), silakan berkonsultasi via WhatsApp terlebih dahulu agar mentor dapat menyesuaikan.",
+    question: "Berapa usia minimal anak untuk bergabung?",
+    answer: "Usia minimal adalah 7 tahun untuk program Scratch Game Creator (selama anak lancar membaca & menggunakan mouse). Untuk Roblox Studio, idealnya anak berusia 9 tahun ke atas agar memahami koordinat ruang 3D dengan optimal."
   },
   {
     id: "faq-7",
-    question: "Apakah setelah lulus anak mendapatkan sertifikat?",
-    answer: "Tentu! Setiap anak yang menghadiri minimal 4 sesi dan mendemonstrasikan hasil game karyanya (baik berupa proyek sederhana) saat sesi presentasi kelulusan di hari terakhir akan mendapatkan Sertifikat Kelulusan Digital Resmi dengan nomor seri sertifikat unik dari Fansedu Academy.",
+    question: "Apakah kelas belajar ini bisa diikuti lewat Handphone (HP)?",
+    answer: "Tidak bisa. Sesi Zoom pendamping kelas bisa dibuka via HP/Tablet, tetapi proyek pengerjaan coding mutlak harus dilakukan langsung dari Laptop atau PC Desktop karena memerlukan aplikasi Roblox Studio atau editor web Scratch yang lengkap."
   },
   {
     id: "faq-8",
-    question: "Di mana saya bisa melihat hasil karya buatan anak saya?",
-    answer: "Semua projek Scratch anak disimpan di bawah cloud akun Scratch anak masing-masing. Mentor akan membagikan tautan/link studio Scratch kelas yang dapat diakses oleh semua orang tua, sehingga Anda bisa memainkan game buatan anak langsung dari smartphone atau membagikannya ke media sosial.",
+    question: "Apakah aplikasi Roblox Studio berbayar?",
+    answer: "Roblox Studio 100% gratis untuk diunduh dan digunakan oleh siapa saja di seluruh dunia. Pihak Roblox tidak mengenakan biaya langganan apa pun untuk mempublikasikan game hasil kreasi anak agar bisa dimainkan publik."
   },
   {
     id: "faq-9",
-    question: "Bagaimana cara pembayaran dan apakah ada jaminan kuota?",
-    answer: "Pembayaran dapat dicairkan melalui Transfer Bank (Virtual Account) atau Dompet Digital. Karena kuota per gelombang dibatasi hanya 10-15 siswa demi memastikan kualitas interaksi pengajaran yang prima, status tempat duduk baru terjamin setelah pembayaran lunas atau menyetor deposit pendaftaran.",
+    question: "Bagaimana cara melakukan pendaftaran kelas?",
+    answer: "Sangat mudah! Hubungi admin kami melalui tombol WhatsApp 'Daftar Sekarang'. Admin kami akan membantu Anda mencocokkan jadwal batch libur berjalan, melengkapi data pendaftaran anak, serta membagikan petunjuk login kelas."
   },
   {
     id: "faq-10",
-    question: "Mengapa program ini menyembunyikan harga biaya investasinya?",
-    answer: "Kami selalu menyesuaikan penawaran kami berdasarkan promo gelombang berjalan (seperti Promo Early Bird, Promo Double Agent, atau promo cicilan). Silakan hubungi kami via WhatsApp sekarang juga untuk mendapatkan brosur lengkap beserta kupon diskon promo potongan harga termurah khusus minggu ini!",
-  },
+    question: "Apakah ada kelanjutan kelas setelah Holiday Camp ini selesai?",
+    answer: "Ya, tentu saja! Holiday Camp ini merupakan batu pijakan awal yang kokoh. Anak-anak yang antusias merakit game dapat melanjutkan bimbingan belajar reguler mingguan (Exclusive Academy Course) untuk memperdalam Lua Scripting, kecerdasan buatan (AI), atau rilis monetisasi game nyata."
+  }
 ];
 
 export const GAME_SHOWCASES: GameShowcase[] = [
   {
-    id: "star",
-    title: "Collect The Star",
-    description: "Anak memprogram karakter bintang laut atau kepiting lucu melompat mengumpulkan bintang emas jatuh dari langit dengan pengukur skor dinamis.",
-    image: "/images/game_collect_star.webp",
-    badge: "Kelas Day 3",
+    id: "obby-roblox",
+    title: "Obby Roblox Adventure",
+    description: "Anak merancang level rintangan 3D melayang dengan ubin berguguran, laser sensor mematikan, detektor checkpoint aman, dan hiasan bendera kemenangan.",
+    image: "/src/assets/images/game_platform_adventure_1781683034594.jpg",
+    badge: "Roblox Studio Course",
     features: [
-      "Variabel Skor Diberlakukan",
-      "Gravitasi & Kontrol Fisika Sederhana",
-      "Efek Partikel Berkilu",
-      "Deteksi Posisi X & Y Acak",
+      "Checkpoint & Save State Coordinator",
+      "Deteksi Sentuhan Laser Kill Block",
+      "Hiasan Partikel Neon Bersinar",
+      "Mekanisme Level Platform Melayang"
     ],
   },
   {
-    id: "maze",
-    title: "Maze Challenge",
-    description: "Anak mendesain labirin penuh jebakan maut. Karakter utama harus digerakkan hati-hati dari start menuju piala emas tanpa menyentuh dinding labirin.",
-    image: "/images/game_maze_challenge.webp",
-    badge: "Kelas Day 4",
+    id: "scratch-platformer",
+    title: "Scratch 2D Adventure",
+    description: "Petualangan bergulir 2D klasik dengan model fisika melompat, musuh patroli, efek suara kustom, dan pengumpul poin kustom.",
+    image: "/src/assets/images/game_maze_challenge_1781683015435.jpg",
+    badge: "Scratch Basic Course",
     features: [
-      "Pemeriksa Warna Sensor Dinding",
-      "Hitbox Karakter Presisi",
-      "Level Berganda Secara Otomatis",
-      "Rintangan Musuh Bergerak",
+      "Sensing Dinding Labirin yang Sensitif",
+      "Hitbox Berkelompok Presisi",
+      "Skor & Game Over Trigger",
+      "Animasi Sprite Bergerak Alami"
     ],
   },
   {
-    id: "adventure",
-    title: "Platform Adventure",
-    description: "Karya puncak game petualangan 2D side-scroller dengan tebing curam, musuh patroli, efek suara lompatan, dan game-win portal.",
-    image: "/images/game_platform_adventure.webp",
-    badge: "Proyek Final Day 5",
+    id: "coin-collector",
+    title: "Roblox Coin Collector",
+    description: "Game mengoleksi koin emas sebanyak-banyaknya di area kompetitif multiplayer yang dilengkapi papan nilai global.",
+    image: "/src/assets/images/game_collect_star_1781682999527.jpg",
+    badge: "Lua Interactive Course",
     features: [
-      "Animasi Sprite Kanan & Kiri",
-      "Kecerdasan Buatan Musuh Sederhana",
-      "Sound FX & Musik Latar Menarik",
-      "Tingkat Kesulitan Kustom",
+      "Papan Nilai Leaderboard Server-Wide",
+      "Proses Generate Koin Otomatis",
+      "Skrip Lua Collector Berputar 3D",
+      "Sistem Penyimpanan Koin Berharga"
     ],
   },
+  {
+    id: "roblox-racing",
+    title: "Roblox Speed Racing",
+    description: "Memacu performa mobil balap balita kustom melintasi lintasan balap fiktif berlingkar sirkuit neon dengan timer dinamis.",
+    image: "/src/assets/images/hero_scratch_camp_1781682976168.jpg",
+    badge: "Roblox Advanced Course",
+    features: [
+      "Sistem Timer Balapan Real-time",
+      "Fisika Kendaraan Balap Roblox",
+      "Rancangan Sirkuit Neon Geometris",
+      "Visual Juara 1, 2, & 3 di Papan"
+    ],
+  },
+  {
+    id: "lua-adventure",
+    title: "Lua Isle Adventure",
+    description: "Game petualangan misterius menjelajahi pulau harta karun terisolasi berbekal pemrograman skrip Lua interaksi NPC.",
+    image: "/src/assets/images/game_platform_adventure_1781683034594.jpg",
+    badge: "Advanced Scripting",
+    features: [
+      "NPC Dialogue Interact Event",
+      "Sistem Persediaan Tas (Inventory)",
+      "Pintu Gerbang Kunci Program",
+      "Spawning Tantangan Khusus"
+    ],
+  },
+  {
+    id: "scratch-quiz",
+    title: "Scratch Smart Quiz Game",
+    description: "Kuis cerdas cermat interaktif buatan sendiri dengan logika percabangan IF-ELSE rumit untuk menilai jawaban benar/salah.",
+    image: "/src/assets/images/game_maze_challenge_1781683015435.jpg",
+    badge: "Scratch Logic",
+    features: [
+      "Logika IF-ELSE Penentu Benar-Salah",
+      "Input Text Analyzer Otomatis",
+      "Penghitung Timer Mundur Kuis",
+      "Suara Benar & Salah yang Lucu"
+    ],
+  }
 ];
-

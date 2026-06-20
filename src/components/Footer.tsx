@@ -17,8 +17,7 @@ export default function Footer() {
           <div className="md:col-span-5">
             <div id="footer-logo" className="flex items-center gap-2.5 text-white">
               <img
-                src="/images/fansedu_logo.webp"
-                loading="lazy"
+                src="/src/assets/images/fansedu_logo_1781709962930.jpg"
                 alt="Fansedu Olympiad Academy"
                 referrerPolicy="no-referrer"
                 className="w-9 h-9 rounded-xl object-cover shadow-lg border border-slate-800"
@@ -57,7 +56,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2.5">
                 <Globe className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
-                <span className="text-slate-350 font-normal leading-tight">https://camp.fansedu.web.id</span>
+                <span className="text-slate-350 font-normal leading-tight">holidaycodingcamp.fansedu.web.id</span>
               </li>
             </ul>
           </div>
